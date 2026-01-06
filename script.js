@@ -87,21 +87,128 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Form submission handler
+// Form submission handler with SMTP integration
 const contactForm = document.getElementById('contactForm');
+const API_URL = 'http://localhost:5000/api';
 
-contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
+if (contactForm) {
+    contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        // Create submit button reference
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
+        
+        try {
+            // Disable button and show loading state
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+            
+            // Get form values
+            const formData = new FormData(contactForm);
+            const data = {
+                name: formData.get('name'),
+                email: formData.get('email'),
+                phone: formData.get('phone') || '',
+                message: formData.get('message'),
+            };
+            
+            // Validate data
+            if (!data.name || !data.email || !data.message) {
+                throw new Error('Please fill in all required fields');
+            }
+            
+            // Send to backend
+            const response = await fetch(`${API_URL}/contact`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            });
+            
+            const result = await response.json();
+            
+            if (result.success) {
+                // Show success message
+                showNotification('Thank you for your message! We will get back to you soon.', 'success');
+                contactForm.reset();
+            } else {
+                throw new Error(result.message || 'Failed to send message');
+            }
+        } catch (error) {
+            // Show error message
+            const errorMsg = error instanceof Error ? error.message : 'An error occurred. Please try again.';
+            showNotification(errorMsg, 'error');
+            console.error('Contact form error:', error);
+        } finally {
+            // Restore button state
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalText;
+        }
+    });
+}
+
+// Notification helper function
+function showNotification(message, type = 'info') {
+    // Create notification element
+    const notification = document.createElement('div');
+    notification.className = `notification notification-${type}`;
+    notification.textContent = message;
     
-    // Get form values
-    const formData = new FormData(contactForm);
+    // Style the notification
+    Object.assign(notification.style, {
+        position: 'fixed',
+        top: '20px',
+        right: '20px',
+        padding: '16px 24px',
+        borderRadius: '8px',
+        fontSize: '14px',
+        fontWeight: '500',
+        zIndex: '10000',
+        animation: 'slideIn 0.3s ease',
+        boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
+        backgroundColor: type === 'success' ? '#10b981' : 
+                         type === 'error' ? '#ef4444' : '#3b82f6',
+        color: 'white',
+        maxWidth: '500px',
+    });
     
-    // Show success message (you can replace this with actual form submission)
-    alert('Thank you for your message! We will get back to you soon.');
+    document.body.appendChild(notification);
     
-    // Reset form
-    contactForm.reset();
-});
+    // Remove after 5 seconds
+    setTimeout(() => {
+        notification.style.animation = 'slideOut 0.3s ease';
+        setTimeout(() => notification.remove(), 300);
+    }, 5000);
+}
+
+// Add notification animations
+const notificationStyles = document.createElement('style');
+notificationStyles.textContent = `
+    @keyframes slideIn {
+        from {
+            transform: translateX(400px);
+            opacity: 0;
+        }
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+    
+    @keyframes slideOut {
+        from {
+            transform: translateX(0);
+            opacity: 1;
+        }
+        to {
+            transform: translateX(400px);
+            opacity: 0;
+        }
+    }
+`;
+document.head.appendChild(notificationStyles);
 
 // Add scroll reveal animation
 const scrollReveal = () => {
