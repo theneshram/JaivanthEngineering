@@ -303,9 +303,9 @@ section {
 .timeline-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 60px 40px;
+    gap: 120px 40px;
     position: relative;
-    padding: 80px 0;
+    padding: 100px 20px;
 }
 
 /* Center horizontal line (desktop) */
@@ -313,10 +313,10 @@ section {
     content: '';
     position: absolute;
     top: 50%;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, #0891b2, #06b6d4, #0891b2);
+    left: 2%;
+    right: 2%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #0891b2, #06b6d4, #0891b2, transparent);
     transform: translateY(-50%);
     z-index: 1;
 }
@@ -327,44 +327,52 @@ section {
     display: flex;
     flex-direction: column;
     z-index: 2;
+    min-height: 300px;
 }
 
-/* Alternating top/bottom */
+/* Alternating top/bottom - ODD items (1st, 3rd, 5th) positioned above */
 .timeline-item:nth-child(odd) {
-    align-items: flex-start;
+    align-items: center;
+    justify-content: flex-start;
 }
 
 .timeline-item:nth-child(odd) .timeline-card {
-    padding-bottom: 50px;
+    align-self: flex-start;
+    margin-bottom: 70px;
 }
 
 .timeline-item:nth-child(odd) .timeline-card::after {
     content: '';
     position: absolute;
-    bottom: -50px;
-    left: 40px;
-    width: 4px;
-    height: 50px;
-    background: linear-gradient(180deg, #0891b2, transparent);
+    bottom: -70px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 70px;
+    background: linear-gradient(180deg, #0891b2 0%, #06b6d4 50%, transparent 100%);
 }
 
+/* Alternating top/bottom - EVEN items (2nd, 4th, 6th) positioned below */
 .timeline-item:nth-child(even) {
-    align-items: flex-end;
-    transform: translateY(180px);
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 140px;
 }
 
 .timeline-item:nth-child(even) .timeline-card {
-    padding-top: 50px;
+    align-self: flex-end;
+    margin-top: 70px;
 }
 
 .timeline-item:nth-child(even) .timeline-card::after {
     content: '';
     position: absolute;
-    top: -50px;
-    right: 40px;
-    width: 4px;
-    height: 50px;
-    background: linear-gradient(180deg, transparent, #0891b2);
+    top: -70px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 70px;
+    background: linear-gradient(180deg, transparent 0%, #06b6d4 50%, #0891b2 100%);
 }
 
 /* Card Styling */
@@ -372,17 +380,17 @@ section {
     position: relative;
     background: white;
     border-radius: 12px;
-    padding: 32px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 28px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     transition: all 0.3s ease;
     width: 100%;
-    max-width: 280px;
+    max-width: 260px;
     border-left: 4px solid #0891b2;
 }
 
 .timeline-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
 }
 
 /* Icon Badge */
@@ -390,108 +398,141 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 56px;
-    height: 56px;
+    width: 52px;
+    height: 52px;
     border-radius: 8px;
     background: linear-gradient(135deg, #0891b2, #06b6d4);
     color: white;
     font-size: 24px;
-    margin-bottom: 16px;
+    margin-bottom: 12px;
     flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+
+.timeline-card:hover .timeline-icon {
+    transform: scale(1.1);
 }
 
 /* Year */
 .timeline-year {
-    font-size: 32px;
-    font-weight: 700;
+    font-size: 36px;
+    font-weight: 800;
     background: linear-gradient(135deg, #0891b2, #06b6d4);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
+    line-height: 1;
 }
 
 /* Title */
 .timeline-title {
-    font-size: 18px;
-    font-weight: 600;
+    font-size: 16px;
+    font-weight: 700;
     color: #1f2937;
-    margin-bottom: 12px;
-    line-height: 1.4;
+    margin-bottom: 8px;
+    line-height: 1.3;
 }
 
 /* Description */
 .timeline-description {
-    font-size: 14px;
+    font-size: 13px;
     color: #6b7280;
-    line-height: 1.6;
+    line-height: 1.5;
+    margin: 0;
 }
 
 /* Node/Connector on the line */
 .timeline-node {
     position: absolute;
-    width: 24px;
-    height: 24px;
+    width: 20px;
+    height: 20px;
     background: white;
-    border: 4px solid #0891b2;
+    border: 3px solid #0891b2;
     border-radius: 50%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 3;
-    box-shadow: 0 0 0 8px rgba(8, 145, 178, 0.1);
+    z-index: 4;
+    box-shadow: 0 0 0 6px rgba(8, 145, 178, 0.15);
+    transition: all 0.3s ease;
+}
+
+.timeline-item:hover .timeline-node {
+    width: 26px;
+    height: 26px;
+    border-width: 4px;
+    box-shadow: 0 0 0 8px rgba(8, 145, 178, 0.2);
 }
 
 /* Tablet Layout (900px and below) */
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
     .timeline-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 100px 40px;
-        padding: 120px 0;
+        gap: 140px 30px;
+        padding: 120px 15px;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-card {
+        margin-bottom: 80px;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-card::after {
+        height: 80px;
+        bottom: -80px;
     }
 
     .timeline-item:nth-child(even) {
-        transform: translateY(180px);
+        margin-top: 160px;
+    }
+
+    .timeline-item:nth-child(even) .timeline-card::after {
+        height: 80px;
+        top: -80px;
     }
 }
 
-/* Mobile Layout (640px and below) */
-@media (max-width: 640px) {
+/* Mobile Layout (768px and below) */
+@media (max-width: 768px) {
     .timeline-grid {
         grid-template-columns: 1fr;
-        gap: 40px 0;
-        padding: 40px 0;
+        gap: 50px 0;
+        padding: 40px 15px;
     }
 
-    /* Remove horizontal line on mobile */
+    /* Vertical line on mobile */
     .timeline-grid::before {
         content: '';
         position: absolute;
         top: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 4px;
+        bottom: 0;
+        left: 24px;
+        right: auto;
+        width: 3px;
         height: 100%;
-        background: linear-gradient(180deg, #0891b2, #06b6d4, #0891b2);
+        background: linear-gradient(180deg, transparent 0%, #0891b2 10%, #06b6d4 50%, #0891b2 90%, transparent 100%);
+        transform: none;
     }
 
     /* Stack vertically */
     .timeline-item {
-        align-items: center;
-        transform: none;
+        align-items: flex-start;
+        min-height: auto;
+        margin-top: 0 !important;
     }
 
     .timeline-item:nth-child(odd),
     .timeline-item:nth-child(even) {
-        align-items: center;
-        transform: none;
+        align-items: flex-start;
+        justify-content: flex-start;
     }
 
     .timeline-card {
-        width: 100%;
+        width: calc(100% - 70px);
         max-width: none;
-        padding: 24px;
-        padding-left: 60px;
+        padding: 20px;
+        padding-left: 50px;
+        margin: 0 !important;
         position: relative;
     }
 
@@ -503,17 +544,49 @@ section {
     .timeline-card::before {
         content: '';
         position: absolute;
-        left: -20px;
-        top: 30px;
-        width: 20px;
+        left: -30px;
+        top: 25px;
+        width: 30px;
         height: 2px;
-        background: #06b6d4;
+        background: linear-gradient(90deg, #0891b2, #06b6d4);
     }
 
-    /* Adjust node position for mobile */
+    /* Node positioned on vertical line */
     .timeline-node {
-        left: 50%;
+        top: 25px;
+        left: -8px;
         transform: translate(-50%, -50%);
+    }
+
+    .timeline-year {
+        font-size: 28px;
+    }
+
+    .timeline-title {
+        font-size: 15px;
+    }
+
+    .timeline-description {
+        font-size: 12px;
+    }
+
+    .timeline-icon {
+        width: 44px;
+        height: 44px;
+        font-size: 20px;
+    }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+    .timeline-grid {
+        padding: 30px 10px;
+    }
+
+    .timeline-card {
+        padding: 16px !important;
+        padding-left: 45px !important;
+        width: calc(100% - 60px) !important;
     }
 
     .timeline-year {
@@ -521,13 +594,7 @@ section {
     }
 
     .timeline-title {
-        font-size: 16px;
-    }
-
-    .timeline-icon {
-        width: 48px;
-        height: 48px;
-        font-size: 20px;
+        font-size: 14px;
     }
 }
     }
