@@ -291,213 +291,245 @@ section {
     padding: 80px 0 100px;
 }
 
-.timeline-infographic {
-    position: relative;
-    height: 500px;
-    margin-top: 3rem;
-}
+/* ========================================
+   Timeline - Responsive Zig-Zag Design
+   ======================================== */
 
-.timeline-path {
-    position: absolute;
-    top: 0;
-    left: 0;
+.timeline-wrapper {
+    position: relative;
     width: 100%;
-    height: 100%;
 }
 
-.curved-path {
-    stroke: rgba(200, 200, 200, 0.3);
-    stroke-width: 40;
-    fill: none;
-    stroke-linecap: round;
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.08));
-}
-
-.milestone-items {
+.timeline-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 60px 40px;
     position: relative;
-    height: 100%;
-    display: flex;
-    align-items: center;
+    padding: 80px 0;
 }
 
-.milestone-item {
+/* Center horizontal line (desktop) */
+.timeline-grid::before {
+    content: '';
     position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #0891b2, #06b6d4, #0891b2);
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+/* Timeline Item */
+.timeline-item {
+    position: relative;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    
-    /* Position calculation based on --position variable */
-    left: calc(var(--position) * 15% + 5%);
-    top: calc(50% - 60px);
+    z-index: 2;
 }
 
-.milestone-item[style*="--position: 0"] {
-    left: 8%;
-    top: 35%;
+/* Alternating top/bottom */
+.timeline-item:nth-child(odd) {
+    align-items: flex-start;
 }
 
-.milestone-item[style*="--position: 1"] {
-    left: 20%;
-    top: 28%;
+.timeline-item:nth-child(odd) .timeline-card {
+    padding-bottom: 50px;
 }
 
-.milestone-item[style*="--position: 2"] {
-    left: 40%;
-    top: 18%;
+.timeline-item:nth-child(odd) .timeline-card::after {
+    content: '';
+    position: absolute;
+    bottom: -50px;
+    left: 40px;
+    width: 4px;
+    height: 50px;
+    background: linear-gradient(180deg, #0891b2, transparent);
 }
 
-.milestone-item[style*="--position: 3"] {
-    left: 55%;
-    top: 10%;
+.timeline-item:nth-child(even) {
+    align-items: flex-end;
+    transform: translateY(180px);
 }
 
-.milestone-item[style*="--position: 4"] {
-    left: 72%;
-    top: 8%;
+.timeline-item:nth-child(even) .timeline-card {
+    padding-top: 50px;
 }
 
-.milestone-item[style*="--position: 5"] {
-    left: 85%;
-    top: 12%;
+.timeline-item:nth-child(even) .timeline-card::after {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: 40px;
+    width: 4px;
+    height: 50px;
+    background: linear-gradient(180deg, transparent, #0891b2);
 }
 
-.milestone-circle {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    background: var(--color, #2563eb);
+/* Card Styling */
+.timeline-card {
+    position: relative;
+    background: white;
+    border-radius: 12px;
+    padding: 32px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    width: 100%;
+    max-width: 280px;
+    border-left: 4px solid #0891b2;
+}
+
+.timeline-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Icon Badge */
+.timeline-icon {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--white);
-    font-size: 2.5rem;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-    margin-bottom: 1.5rem;
-    transition: all 0.3s ease;
-    border: 4px solid var(--white);
-    cursor: pointer;
+    width: 56px;
+    height: 56px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #0891b2, #06b6d4);
+    color: white;
+    font-size: 24px;
+    margin-bottom: 16px;
+    flex-shrink: 0;
 }
 
-.milestone-circle:hover {
-    transform: scale(1.1);
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
-}
-
-.milestone-content {
-    text-align: center;
-    max-width: 180px;
-}
-
-.milestone-year {
-    display: block;
+/* Year */
+.timeline-year {
+    font-size: 32px;
     font-weight: 700;
-    font-size: 1.3rem;
-    color: var(--dark-color);
-    margin-bottom: 0.3rem;
-    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #0891b2, #06b6d4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 8px;
 }
 
-.milestone-item p {
-    font-size: 0.95rem;
-    color: var(--gray-color);
-    line-height: 1.5;
-    margin: 0;
+/* Title */
+.timeline-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 12px;
+    line-height: 1.4;
 }
 
+/* Description */
+.timeline-description {
+    font-size: 14px;
+    color: #6b7280;
+    line-height: 1.6;
+}
+
+/* Node/Connector on the line */
+.timeline-node {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background: white;
+    border: 4px solid #0891b2;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    box-shadow: 0 0 0 8px rgba(8, 145, 178, 0.1);
+}
+
+/* Tablet Layout (900px and below) */
 @media (max-width: 900px) {
-    .timeline-infographic {
-        height: 700px;
+    .timeline-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 100px 40px;
+        padding: 120px 0;
     }
 
-    .milestone-circle {
-        width: 85px;
-        height: 85px;
-        font-size: 2rem;
-    }
-
-    .milestone-item[style*="--position: 0"] {
-        left: 5%;
-        top: 10%;
-    }
-
-    .milestone-item[style*="--position: 1"] {
-        left: 15%;
-        top: 25%;
-    }
-
-    .milestone-item[style*="--position: 2"] {
-        left: 30%;
-        top: 40%;
-    }
-
-    .milestone-item[style*="--position: 3"] {
-        left: 50%;
-        top: 50%;
-    }
-
-    .milestone-item[style*="--position: 4"] {
-        left: 70%;
-        top: 55%;
-    }
-
-    .milestone-item[style*="--position: 5"] {
-        left: 85%;
-        top: 65%;
+    .timeline-item:nth-child(even) {
+        transform: translateY(180px);
     }
 }
 
+/* Mobile Layout (640px and below) */
 @media (max-width: 640px) {
-    .timeline-infographic {
-        height: 1000px;
+    .timeline-grid {
+        grid-template-columns: 1fr;
+        gap: 40px 0;
+        padding: 40px 0;
     }
 
-    .timeline-path {
+    /* Remove horizontal line on mobile */
+    .timeline-grid::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 4px;
+        height: 100%;
+        background: linear-gradient(180deg, #0891b2, #06b6d4, #0891b2);
+    }
+
+    /* Stack vertically */
+    .timeline-item {
+        align-items: center;
+        transform: none;
+    }
+
+    .timeline-item:nth-child(odd),
+    .timeline-item:nth-child(even) {
+        align-items: center;
+        transform: none;
+    }
+
+    .timeline-card {
+        width: 100%;
+        max-width: none;
+        padding: 24px;
+        padding-left: 60px;
+        position: relative;
+    }
+
+    .timeline-card::after {
         display: none;
     }
 
-    .milestone-circle {
-        width: 70px;
-        height: 70px;
-        font-size: 1.5rem;
+    /* Connect to vertical line */
+    .timeline-card::before {
+        content: '';
+        position: absolute;
+        left: -20px;
+        top: 30px;
+        width: 20px;
+        height: 2px;
+        background: #06b6d4;
     }
 
-    .milestone-item[style*="--position: 0"],
-    .milestone-item[style*="--position: 1"],
-    .milestone-item[style*="--position: 2"],
-    .milestone-item[style*="--position: 3"],
-    .milestone-item[style*="--position: 4"],
-    .milestone-item[style*="--position: 5"] {
+    /* Adjust node position for mobile */
+    .timeline-node {
         left: 50%;
-        transform: translateX(-50%);
-        top: auto;
+        transform: translate(-50%, -50%);
     }
 
-    .milestone-item[style*="--position: 0"] {
-        top: 0;
+    .timeline-year {
+        font-size: 24px;
     }
 
-    .milestone-item[style*="--position: 1"] {
-        top: 150px;
+    .timeline-title {
+        font-size: 16px;
     }
 
-    .milestone-item[style*="--position: 2"] {
-        top: 300px;
+    .timeline-icon {
+        width: 48px;
+        height: 48px;
+        font-size: 20px;
     }
-
-    .milestone-item[style*="--position: 3"] {
-        top: 450px;
-    }
-
-    .milestone-item[style*="--position: 4"] {
-        top: 600px;
-    }
-
-    .milestone-item[style*="--position: 5"] {
-        top: 750px;
-    }
-
-    .milestone-year {
-        font-size: 1.1rem;
+}
     }
 
     .milestone-item p {
