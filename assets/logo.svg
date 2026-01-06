@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Jaivant Engineering logo">
+  <title>Jaivant Engineering</title>
+  <g fill-rule="evenodd" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M60 150 L235 260 L180 380 L60 200 Z" fill="#4ca6ce" stroke="#3b7da0" stroke-width="8"/>
+    <path d="M275 70 C295 30 345 45 335 95 C325 150 275 145 275 105 Z" fill="#4ca6ce" stroke="#3b7da0" stroke-width="8"/>
+    <path d="M250 260 L450 150 L320 420 L230 310 Z" fill="#9a928b" stroke="#7b736c" stroke-width="8"/>
+    <path d="M210 310 L250 270 L290 330 L255 430 Z" fill="#b7b0a8" stroke="#8d867f" stroke-width="6" opacity="0.9"/>
+  </g>
+</svg>
