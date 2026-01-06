@@ -283,6 +283,38 @@ section {
     margin: 0 auto;
 }
 
+/* Timeline */
+.timeline {
+    background: var(--white);
+}
+
+.timeline-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+}
+
+.timeline-card {
+    background: #4a80bf;
+    color: var(--white);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.timeline-card .year {
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 0.4rem;
+    letter-spacing: 0.5px;
+}
+
+.timeline-card .detail {
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
 /* About Section */
 .about {
     background: var(--light-color);
