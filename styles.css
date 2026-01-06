@@ -293,15 +293,15 @@ section {
 .timeline-roadmap {
     position: relative;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 3rem 4rem;
     align-items: start;
-    padding: 1rem 0 0.5rem;
+    padding: 1.5rem 0 0.5rem;
 }
 
 .timeline-track {
     position: absolute;
-    top: 58px;
+    top: 68px;
     left: 0;
     right: 0;
     height: 6px;
@@ -313,6 +313,14 @@ section {
 .timeline-item {
     position: relative;
     text-align: center;
+}
+
+.timeline-item:nth-child(even) {
+    margin-top: 70px;
+}
+
+.timeline-item:nth-child(odd) {
+    margin-bottom: 40px;
 }
 
 .timeline-pin {
@@ -327,7 +335,7 @@ section {
 .timeline-pin::after {
     content: '';
     width: 2px;
-    height: 50px;
+    height: 60px;
     background: rgba(37, 99, 235, 0.3);
     position: absolute;
     top: 48px;
@@ -358,7 +366,7 @@ section {
 }
 
 .timeline-card {
-    margin-top: 80px;
+    margin-top: 90px;
     background: #4a80bf;
     color: var(--white);
     padding: 1.1rem 1.25rem;
@@ -378,11 +386,12 @@ section {
 
 @media (max-width: 900px) {
     .timeline-roadmap {
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 2.5rem 3rem;
     }
 
     .timeline-track {
-        top: 64px;
+        top: 70px;
     }
 }
 
@@ -390,6 +399,12 @@ section {
     .timeline-roadmap {
         grid-template-columns: 1fr;
         gap: 2.5rem;
+    }
+
+    .timeline-item:nth-child(even),
+    .timeline-item:nth-child(odd) {
+        margin-top: 0;
+        margin-bottom: 0;
     }
 
     .timeline-track {
