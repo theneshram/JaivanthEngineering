@@ -286,33 +286,123 @@ section {
 /* Timeline */
 .timeline {
     background: var(--white);
+    position: relative;
+    overflow: hidden;
 }
 
-.timeline-cards {
+.timeline-roadmap {
+    position: relative;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 2rem;
+    align-items: start;
+    padding: 1rem 0 0.5rem;
+}
+
+.timeline-track {
+    position: absolute;
+    top: 58px;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, #7c3aed, #2563eb, #22c55e, #f59e0b, #ec4899);
+    border-radius: 999px;
+    opacity: 0.2;
+}
+
+.timeline-item {
+    position: relative;
+    text-align: center;
+}
+
+.timeline-pin {
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+    z-index: 2;
+}
+
+.timeline-pin::after {
+    content: '';
+    width: 2px;
+    height: 50px;
+    background: rgba(37, 99, 235, 0.3);
+    position: absolute;
+    top: 48px;
+}
+
+.timeline-pin .year {
+    background: #2563eb;
+    color: var(--white);
+    padding: 0.5rem 0.75rem;
+    border-radius: 10px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    box-shadow: var(--shadow-sm);
+    min-width: 90px;
+}
+
+.timeline-pin .icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--white);
+    display: grid;
+    place-items: center;
+    color: #2563eb;
+    font-size: 1.3rem;
+    box-shadow: var(--shadow-md);
+    border: 3px solid rgba(37, 99, 235, 0.15);
 }
 
 .timeline-card {
+    margin-top: 80px;
     background: #4a80bf;
     color: var(--white);
-    padding: 1.5rem;
+    padding: 1.1rem 1.25rem;
     border-radius: 12px;
     box-shadow: var(--shadow-md);
-    border: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-.timeline-card .year {
-    font-weight: 700;
-    font-size: 1.1rem;
-    margin-bottom: 0.4rem;
-    letter-spacing: 0.5px;
+    min-height: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.02rem;
+    line-height: 1.6;
 }
 
 .timeline-card .detail {
-    font-size: 1.05rem;
-    line-height: 1.6;
+    max-width: 220px;
+}
+
+@media (max-width: 900px) {
+    .timeline-roadmap {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    .timeline-track {
+        top: 64px;
+    }
+}
+
+@media (max-width: 640px) {
+    .timeline-roadmap {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .timeline-track {
+        display: none;
+    }
+
+    .timeline-pin::after {
+        height: 40px;
+    }
+
+    .timeline-card {
+        margin-top: 70px;
+    }
 }
 
 /* About Section */
