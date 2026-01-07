@@ -303,9 +303,9 @@ section {
 .timeline-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 120px 40px;
+    gap: 80px 30px;
     position: relative;
-    padding: 60px 20px;
+    padding: 40px 20px;
 }
 
 /* Center horizontal line (desktop) */
@@ -327,7 +327,7 @@ section {
     display: flex;
     flex-direction: column;
     z-index: 2;
-    min-height: 300px;
+    min-height: 280px;
 }
 
 /* Alternating top/bottom - ODD items (1st, 3rd, 5th) positioned above */
@@ -338,17 +338,17 @@ section {
 
 .timeline-item:nth-child(odd) .timeline-card {
     align-self: flex-start;
-    margin-bottom: 70px;
+    margin-bottom: 50px;
 }
 
 .timeline-item:nth-child(odd) .timeline-card::after {
     content: '';
     position: absolute;
-    bottom: -70px;
+    bottom: -50px;
     left: 50%;
     transform: translateX(-50%);
     width: 2px;
-    height: 70px;
+    height: 50px;
     background: linear-gradient(180deg, #0891b2 0%, #06b6d4 50%, transparent 100%);
 }
 
@@ -356,22 +356,22 @@ section {
 .timeline-item:nth-child(even) {
     align-items: center;
     justify-content: flex-end;
-    margin-top: 140px;
+    margin-top: 100px;
 }
 
 .timeline-item:nth-child(even) .timeline-card {
     align-self: flex-end;
-    margin-top: 70px;
+    margin-top: 50px;
 }
 
 .timeline-item:nth-child(even) .timeline-card::after {
     content: '';
     position: absolute;
-    top: -70px;
+    top: -50px;
     left: 50%;
     transform: translateX(-50%);
     width: 2px;
-    height: 70px;
+    height: 50px;
     background: linear-gradient(180deg, transparent 0%, #06b6d4 50%, #0891b2 100%);
 }
 
@@ -469,26 +469,26 @@ section {
 @media (max-width: 1024px) {
     .timeline-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 140px 30px;
-        padding: 120px 15px;
+        gap: 100px 25px;
+        padding: 40px 15px;
     }
 
     .timeline-item:nth-child(odd) .timeline-card {
-        margin-bottom: 80px;
+        margin-bottom: 60px;
     }
 
     .timeline-item:nth-child(odd) .timeline-card::after {
-        height: 80px;
-        bottom: -80px;
+        height: 60px;
+        bottom: -60px;
     }
 
     .timeline-item:nth-child(even) {
-        margin-top: 160px;
+        margin-top: 120px;
     }
 
     .timeline-item:nth-child(even) .timeline-card::after {
-        height: 80px;
-        top: -80px;
+        height: 60px;
+        top: -60px;
     }
 }
 
