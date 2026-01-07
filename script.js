@@ -319,9 +319,10 @@ const clients = [
         website: 'https://www.lgb.co.in/'
     },
     {
-        name: 'Aditya Auto',
+        name: 'Aditiya',
         domain: 'adityaauto.com',
-        website: 'https://adityaauto.com/products'
+        website: 'https://adityaauto.com/products',
+        logoUrl: 'https://adityaauto.com/static/img/logo.png'
     },
     {
         name: 'Jentex India',
@@ -330,13 +331,16 @@ const clients = [
     }
 ];
 
-function logoCandidates(domain) {
-    // Prefer site favicon; fallback to Clearbit logo; finally placeholder svg
-    return [
+function logoCandidates(domain, logoUrl) {
+    // Prefer direct logoUrl if provided; then favicon; fallback to Clearbit; finally placeholder svg
+    const candidates = [];
+    if (logoUrl) candidates.push(logoUrl);
+    candidates.push(
         `https://${domain}/favicon.ico`,
         `https://logo.clearbit.com/${domain}`,
         'assets/clients/placeholder.svg'
-    ];
+    );
+    return candidates;
 }
 
 function renderClients() {
@@ -354,7 +358,7 @@ function renderClients() {
         logoWrap.className = 'client-logo';
 
         const img = document.createElement('img');
-        const sources = logoCandidates(client.domain);
+        const sources = logoCandidates(client.domain, client.logoUrl);
         let idx = 0;
         img.src = sources[idx];
         img.alt = `${client.name} logo`;
