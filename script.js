@@ -301,5 +301,85 @@ document.addEventListener('DOMContentLoaded', () => {
             }, index * 100);
         });
     }, 500);
+
+    // Render Clients grid
+    renderClients();
 });
+
+// Clients data and renderer
+const clients = [
+    {
+        name: 'Roots Industries',
+        domain: 'rootsindia.com',
+        website: 'https://www.rootsindia.com/'
+    },
+    {
+        name: 'L.G. Balakrishnan & Bros (LGB)',
+        domain: 'lgb.co.in',
+        website: 'https://www.lgb.co.in/'
+    },
+    {
+        name: 'Aditya Auto',
+        domain: 'adityaauto.com',
+        website: 'https://adityaauto.com/products'
+    },
+    {
+        name: 'Jentex India',
+        domain: 'jentexindia.com',
+        website: 'https://jentexindia.com/'
+    }
+];
+
+function logoCandidates(domain) {
+    // Prefer site favicon; fallback to Clearbit logo; finally placeholder svg
+    return [
+        `https://${domain}/favicon.ico`,
+        `https://logo.clearbit.com/${domain}`,
+        'assets/clients/placeholder.svg'
+    ];
+}
+
+function renderClients() {
+    const grid = document.getElementById('clientsGrid');
+    if (!grid) return;
+
+    clients.forEach(client => {
+        const card = document.createElement('a');
+        card.className = 'client-card';
+        card.href = client.website;
+        card.target = '_blank';
+        card.rel = 'noopener noreferrer';
+
+        const logoWrap = document.createElement('div');
+        logoWrap.className = 'client-logo';
+
+        const img = document.createElement('img');
+        const sources = logoCandidates(client.domain);
+        let idx = 0;
+        img.src = sources[idx];
+        img.alt = `${client.name} logo`;
+        img.loading = 'lazy';
+        img.referrerPolicy = 'no-referrer';
+        img.onerror = () => {
+            idx += 1;
+            if (idx < sources.length) img.src = sources[idx];
+        };
+        logoWrap.appendChild(img);
+
+        const info = document.createElement('div');
+        info.className = 'client-info';
+        const name = document.createElement('div');
+        name.className = 'client-name';
+        name.textContent = client.name;
+        const link = document.createElement('div');
+        link.className = 'client-link';
+        link.textContent = new URL(client.website).hostname.replace('www.', '');
+        info.appendChild(name);
+        info.appendChild(link);
+
+        card.appendChild(logoWrap);
+        card.appendChild(info);
+        grid.appendChild(card);
+    });
+}
 
