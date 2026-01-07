@@ -319,7 +319,7 @@ const clients = [
         website: 'https://www.lgb.co.in/'
     },
     {
-        name: 'Aditiya',
+        name: 'Aditya',
         domain: 'adityaauto.com',
         website: 'https://adityaauto.com/products',
         logoUrl: 'https://adityaauto.com/static/img/logo.png'
