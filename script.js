@@ -2,23 +2,26 @@
 const hamburger = document.getElementById('hamburger');
 const navLinks = document.getElementById('navLinks');
 
-hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-    hamburger.classList.toggle('active');
-});
-
-// Close mobile menu when clicking on a link
-document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-        navLinks.classList.remove('active');
-        hamburger.classList.remove('active');
+if (hamburger && navLinks) {
+    hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        hamburger.classList.toggle('active');
     });
-});
+
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            hamburger.classList.remove('active');
+        });
+    });
+}
 
 // Navbar scroll effect
 const navbar = document.querySelector('.navbar');
 
 window.addEventListener('scroll', () => {
+    if (!navbar) return;
     if (window.scrollY > 50) {
         navbar.classList.add('scrolled');
     } else {
@@ -29,15 +32,16 @@ window.addEventListener('scroll', () => {
 // Animated Counter for Stats
 const animateCounter = (element, target, duration = 2000) => {
     let current = 0;
-    const increment = target / (duration / 16);
+    const safeTarget = Number.isFinite(target) ? target : 0;
+    const increment = safeTarget / (duration / 16);
     
     const updateCounter = () => {
         current += increment;
-        if (current < target) {
+        if (current < safeTarget) {
             element.textContent = Math.floor(current) + '+';
             requestAnimationFrame(updateCounter);
         } else {
-            element.textContent = target + '+';
+            element.textContent = safeTarget + '+';
         }
     };
     
@@ -59,7 +63,8 @@ const observer = new IntersectionObserver((entries) => {
             if (entry.target.classList.contains('stats')) {
                 const statNumbers = entry.target.querySelectorAll('.stat-number');
                 statNumbers.forEach(stat => {
-                    const target = parseInt(stat.getAttribute('data-target'));
+                    const targetValue = stat.getAttribute('data-target');
+                    const target = targetValue ? Number.parseInt(targetValue, 10) : 0;
                     animateCounter(stat, target);
                 });
             }
@@ -89,7 +94,10 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // Form submission handler with SMTP integration
 const contactForm = document.getElementById('contactForm');
-const API_URL = 'http://localhost:5000/api';
+const API_URL =
+    window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+        ? 'http://localhost:5000/api'
+        : `${window.location.origin}/api`;
 
 if (contactForm) {
     contactForm.addEventListener('submit', async (e) => {
@@ -97,7 +105,11 @@ if (contactForm) {
         
         // Create submit button reference
         const submitBtn = contactForm.querySelector('button[type="submit"]');
-        const originalText = submitBtn.textContent;
+        if (!submitBtn) {
+            showNotification('Submit button not found. Please try again later.', 'error');
+            return;
+        }
+        const originalText = submitBtn.textContent || 'Submit';
         
         try {
             // Disable button and show loading state
@@ -107,10 +119,10 @@ if (contactForm) {
             // Get form values
             const formData = new FormData(contactForm);
             const data = {
-                name: formData.get('name'),
-                email: formData.get('email'),
-                phone: formData.get('phone') || '',
-                message: formData.get('message'),
+                name: String(formData.get('name') || '').trim(),
+                email: String(formData.get('email') || '').trim(),
+                phone: String(formData.get('phone') || '').trim(),
+                message: String(formData.get('message') || '').trim(),
             };
             
             // Validate data
@@ -272,7 +284,7 @@ document.head.appendChild(style);
 // Typing effect for hero title (optional enhancement)
 const heroTitle = document.querySelector('.hero-title .line:first-child');
 if (heroTitle) {
-    const text = heroTitle.textContent;
+    const text = heroTitle.textContent || '';
     heroTitle.textContent = '';
     let i = 0;
     
@@ -386,4 +398,3 @@ function renderClients() {
         grid.appendChild(card);
     });
 }
-
