@@ -170,6 +170,9 @@ html {
     opacity: 0;
     transition: opacity 0.8s ease;
     background: var(--gradient-2);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
