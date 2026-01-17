@@ -287,6 +287,19 @@ p { font-size: 16px; color: var(--text-grey); }
 }
 
 .section-header p {
+
+.section-image {
+    margin: 20px 0 40px;
+}
+
+.section-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow: var(--shadow-lg);
+}
     font-size: 16px;
     color: var(--accent-orange);
     font-weight: 600;

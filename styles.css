@@ -373,6 +373,19 @@ section {
 }
 
 .section-tag {
+
+.section-image {
+    margin: 20px 0 40px;
+}
+
+.section-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow: var(--shadow-lg);
+}
     display: inline-block;
     color: var(--primary-color);
     font-weight: 600;

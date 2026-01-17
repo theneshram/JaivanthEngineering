@@ -2,6 +2,15 @@
 const heroCarousel = () => {
     const slides = document.querySelectorAll('.hero-slide');
     const dots = document.querySelectorAll('.dot');
+    
+    console.log('Carousel - Found slides:', slides.length);
+    console.log('Carousel - Found dots:', dots.length);
+    
+    if (slides.length === 0 || dots.length === 0) {
+        console.warn('Carousel elements not found!');
+        return;
+    }
+    
     let currentSlide = 0;
     const slideInterval = 5000; // 5 seconds
     let autoSlide;
@@ -15,6 +24,7 @@ const heroCarousel = () => {
         
         if (slides[currentSlide]) slides[currentSlide].classList.add('active');
         if (dots[currentSlide]) dots[currentSlide].classList.add('active');
+        console.log('Showing slide:', currentSlide);
     };
 
     const nextSlide = () => {
@@ -36,7 +46,8 @@ const heroCarousel = () => {
 
     // Dot navigation with click event
     dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => {
+        dot.addEventListener('click', (e) => {
+            e.preventDefault();
             console.log('Dot clicked:', index);
             goToSlide(index);
         });
@@ -44,7 +55,7 @@ const heroCarousel = () => {
 
     // Auto-rotate carousel
     autoSlide = setInterval(nextSlide, slideInterval);
-    console.log('Carousel initialized with auto-slide');
+    console.log('Carousel initialized with auto-slide interval:', slideInterval);
 
     // Pause on hover
     const carousel = document.querySelector('.hero-carousel');
@@ -214,8 +225,22 @@ document.querySelectorAll('.card, .highlight-card, .product-category, .capabilit
 
 // ===== INITIALIZE ON PAGE LOAD =====
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('Page loaded, initializing carousel...');
+    console.log('Page loaded, initializing carousel and other features...');
     heroCarousel();
+    scrollReveal();
+    
+    // Add animation class to elements on load
+    setTimeout(() => {
+        document.querySelectorAll('.service-card').forEach((card, index) => {
+            setTimeout(() => {
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+            }, index * 100);
+        });
+    }, 500);
+
+    // Render Clients grid
+    renderClients();
 });
 
 // Intersection Observer for animations
@@ -469,24 +494,6 @@ if (heroTitle) {
     // Uncomment to enable typing effect
     // setTimeout(typeWriter, 500);
 }
-
-// Initialize
-document.addEventListener('DOMContentLoaded', () => {
-    scrollReveal();
-    
-    // Add animation class to elements on load
-    setTimeout(() => {
-        document.querySelectorAll('.service-card').forEach((card, index) => {
-            setTimeout(() => {
-                card.style.opacity = '1';
-                card.style.transform = 'translateY(0)';
-            }, index * 100);
-        });
-    }, 500);
-
-    // Render Clients grid
-    renderClients();
-});
 
 // Clients data and renderer
 const clients = [
