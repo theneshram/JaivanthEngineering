@@ -243,19 +243,11 @@ document.addEventListener('DOMContentLoaded', () => {
     renderClients();
 });
 
-// Intersection Observer for animations
-const observerOptions = {
-    threshold: 0.3,
-    rootMargin: '0px 0px -100px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('animate');
-            
-            // Trigger counter animation for stats
-            if (entry.target.classList.contains('stats')) {
+// Observe sections for stats animation
+document.addEventListener('DOMContentLoaded', () => {
+    const statsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && entry.target.classList.contains('stats')) {
                 const statNumbers = entry.target.querySelectorAll('.stat-number');
                 statNumbers.forEach(stat => {
                     const targetValue = stat.getAttribute('data-target');
@@ -263,13 +255,12 @@ const observer = new IntersectionObserver((entries) => {
                     animateCounter(stat, target);
                 });
             }
-        }
-    });
-}, observerOptions);
+        });
+    }, { threshold: 0.3 });
 
-// Observe all sections
-document.querySelectorAll('section').forEach(section => {
-    observer.observe(section);
+    document.querySelectorAll('section').forEach(section => {
+        statsObserver.observe(section);
+    });
 });
 
 // Smooth scroll for navigation links
