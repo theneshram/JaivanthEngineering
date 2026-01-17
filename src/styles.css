@@ -78,6 +78,14 @@ p { font-size: 16px; color: var(--text-grey); }
     padding: 15px 20px;
 }
 
+.nav-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 40px;
+}
+
 .logo {
     display: flex;
     align-items: center;
@@ -86,6 +94,7 @@ p { font-size: 16px; color: var(--text-grey); }
     font-family: 'Poppins', sans-serif;
     color: var(--primary-blue);
     font-size: 20px;
+    flex-shrink: 0;
 }
 
 .logo i {
@@ -93,10 +102,16 @@ p { font-size: 16px; color: var(--text-grey); }
     color: var(--accent-orange);
 }
 
+.logo img {
+    width: 32px;
+    height: 32px;
+}
+
 .nav-links {
     display: flex;
     gap: 30px;
     list-style: none;
+    margin-left: auto;
 }
 
 .nav-links a {

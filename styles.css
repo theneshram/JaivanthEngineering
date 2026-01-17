@@ -42,6 +42,10 @@ html {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
 }
 
 /* Navigation */
@@ -65,7 +69,8 @@ html {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 0;
+    width: 100%;
+    gap: 40px;
 }
 
 .logo {
@@ -76,6 +81,7 @@ html {
     font-weight: 700;
     font-family: 'Poppins', sans-serif;
     color: var(--primary-color);
+    flex-shrink: 0;
 }
 
 .logo img {
@@ -89,6 +95,7 @@ html {
     display: flex;
     gap: 2rem;
     align-items: center;
+    margin-left: auto;
 }
 
 .nav-links a {
