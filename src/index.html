@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jaivant Engineering - Precision Manufacturing & Engineering Solutions</title>
+    <title>Jaivanth Engineering - ISO 9001:2015 Certified Manufacturing | Cold Forged Components</title>
+    <meta name="description" content="Jaivanth Engineering - ISO 9001:2015 certified manufacturer of industrial & cold-forged components since 2000. Precision engineering, CNC turning, pressed components.">
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto:wght@300;400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -14,16 +15,16 @@
         <div class="container">
             <div class="nav-wrapper">
                 <div class="logo">
-                    <img src="assets/logo.svg" alt="Jaivant Engineering logo">
-                    <span>Jaivant Engineering</span>
+                    <i class="fas fa-cog"></i>
+                    <span>Jaivanth Engineering</span>
                 </div>
                 <div class="nav-links" id="navLinks">
                     <a href="#home">Home</a>
-                    <a href="#about">About</a>
-                    <a href="#timeline">Timeline</a>
-                    <a href="#services">Services</a>
-                    <a href="#clients">Clients</a>
+                    <a href="#about">About Us</a>
                     <a href="#capabilities">Capabilities</a>
+                    <a href="#products">Products</a>
+                    <a href="#quality">Quality</a>
+                    <a href="#customers">Customers</a>
                     <a href="#contact">Contact</a>
                 </div>
                 <div class="hamburger" id="hamburger">
@@ -35,387 +36,518 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-overlay"></div>
-        <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title">
-                    <span class="line">Precision Engineering</span>
-                    <span class="line">Excellence in Manufacturing</span>
-                </h1>
-                <p class="hero-subtitle">Your trusted partner for high-quality mechanical components and engineering solutions</p>
-                <div class="hero-buttons">
-                    <a href="#services" class="btn btn-primary">Our Services</a>
-                    <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+    <!-- Hero Section with Carousel -->
+    <section id="home" class="hero-carousel">
+        <div class="hero-slide active">
+            <div class="hero-overlay"></div>
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Precision Engineered Components. Delivered with Trust.</h1>
+                    <p>ISO 9001:2015 Certified Manufacturer of Industrial & Cold Forged Components Since 2000</p>
+                    <div class="hero-buttons">
+                        <a href="#contact" class="btn btn-primary">Request a Quote</a>
+                        <a href="#contact" class="btn btn-secondary">Contact Us</a>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="scroll-indicator">
-            <div class="mouse"></div>
+
+        <div class="hero-slide">
+            <div class="hero-overlay"></div>
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Engineering Strength into Every Component</h1>
+                    <p>Advanced Cold Forging | CNC Turning | Pressed Components | Consistent Quality</p>
+                    <div class="hero-buttons">
+                        <a href="#capabilities" class="btn btn-primary">View Capabilities</a>
+                        <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-slide">
+            <div class="hero-overlay"></div>
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Manufacturing Excellence Powered by Experience</h1>
+                    <p>Over Two Decades of Expertise Serving Leading OEMs Across Industries</p>
+                    <div class="hero-buttons">
+                        <a href="#about" class="btn btn-primary">Learn Our Story</a>
+                        <a href="#contact" class="btn btn-secondary">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-dots">
+            <span class="dot active" data-slide="0"></span>
+            <span class="dot" data-slide="1"></span>
+            <span class="dot" data-slide="2"></span>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
+    <!-- Introduction Section -->
+    <section class="intro-section">
+        <div class="container">
+            <div class="intro-content">
+                <h2>Welcome to Jaivanth Engineering</h2>
+                <p>Jaivanth Engineering is a professionally managed manufacturing company specializing in industrial components and cold-forged products, headquartered in Coimbatore, India. Established in 2000, we have built a strong reputation for precision, reliability, and consistent quality, serving customers across diverse industrial sectors.</p>
+                <p>With ISO 9001:2015 certification, modern infrastructure, and a skilled workforce, we deliver products that meet stringent quality standards and customer expectations.</p>
+            </div>
+
+            <div class="highlights-grid">
+                <div class="highlight-card">
+                    <i class="fas fa-certificate"></i>
+                    <h3>ISO 9001:2015 Certified</h3>
+                    <p>Manufacturing Facility</p>
+                </div>
+                <div class="highlight-card">
+                    <i class="fas fa-hourglass-end"></i>
+                    <h3>20+ Years</h3>
+                    <p>Industry Experience</p>
+                </div>
+                <div class="highlight-card">
+                    <i class="fas fa-cogs"></i>
+                    <h3>Cold Forging up to M10</h3>
+                    <p>Advanced Machinery</p>
+                </div>
+                <div class="highlight-card">
+                    <i class="fas fa-handshake"></i>
+                    <h3>Trusted Supplier</h3>
+                    <p>Leading OEMs</p>
+                </div>
+                <div class="highlight-card">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Quality Assurance</h3>
+                    <p>Skilled Workforce</p>
+                </div>
+                <div class="highlight-card">
+                    <i class="fas fa-sync-alt"></i>
+                    <h3>Continuous Improvement</h3>
+                    <p>Process Excellence</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="about-section">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">About Us</span>
-                <h2 class="section-title">Engineering Excellence Since Inception</h2>
-                <p class="section-description">Delivering precision-engineered solutions with commitment to quality and innovation</p>
-            </div>
-            <div class="about-content">
-                <div class="about-text">
-                    <h3>Who We Are</h3>
-                    <p>Jaivant Engineering is a leading provider of precision mechanical engineering and manufacturing services. We specialize in delivering high-quality components and solutions that meet the exacting standards of modern industry.</p>
-                    <p>With state-of-the-art equipment and a team of skilled professionals, we combine traditional craftsmanship with cutting-edge technology to deliver exceptional results for our clients.</p>
-                    <div class="features">
-                        <div class="feature-item">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Quality Assurance</span>
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Timely Delivery</span>
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Expert Team</span>
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Competitive Pricing</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="about-image">
-                    <div class="image-wrapper">
-                        <div class="floating-card">
-                            <i class="fas fa-award"></i>
-                            <h4>Quality Certified</h4>
-                            <p>ISO Standards</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Timeline Section -->
-    <section id="timeline" class="timeline">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Our Journey</span>
-                <h2 class="section-title">Jaivant Engineering Timeline</h2>
-                <p class="section-description">Explore our growth and milestones through the years</p>
+                <h2>About Jaivanth Engineering</h2>
+                <p>Our Story & Strengths</p>
             </div>
 
-            <div class="timeline-wrapper">
-                <div class="timeline-grid">
-                    <!-- Milestone 1: 2000 -->
-                    <div class="timeline-item">
-                        <div class="timeline-card">
-                            <div class="timeline-icon">
-                                <i class="fas fa-flag"></i>
-                            </div>
-                            <div class="timeline-year">2000</div>
-                            <div class="timeline-title">Founded Jaivanth Engineering</div>
-                            <div class="timeline-description">Beginning our journey in industrial component manufacturing</div>
-                        </div>
-                        <div class="timeline-node"></div>
-                    </div>
-
-                    <!-- Milestone 2: 2002 -->
-                    <div class="timeline-item">
-                        <div class="timeline-card">
-                            <div class="timeline-icon">
-                                <i class="fas fa-cog"></i>
-                            </div>
-                            <div class="timeline-year">2002</div>
-                            <div class="timeline-title">Automats Added</div>
-                            <div class="timeline-description">Expanded capabilities with advanced automation</div>
-                        </div>
-                        <div class="timeline-node"></div>
-                    </div>
-
-                    <!-- Milestone 3: 2007 -->
-                    <div class="timeline-item">
-                        <div class="timeline-card">
-                            <div class="timeline-icon">
-                                <i class="fas fa-industry"></i>
-                            </div>
-                            <div class="timeline-year">2007</div>
-                            <div class="timeline-title">Power Press Components</div>
-                            <div class="timeline-description">Launched Power Press Components manufacturing</div>
-                        </div>
-                        <div class="timeline-node"></div>
-                    </div>
-
-                    <!-- Milestone 4: 2008 -->
-                    <div class="timeline-item">
-                        <div class="timeline-card">
-                            <div class="timeline-icon">
-                                <i class="fas fa-tools"></i>
-                            </div>
-                            <div class="timeline-year">2008</div>
-                            <div class="timeline-title">CNC Turning Started</div>
-                            <div class="timeline-description">Enhanced precision and expanded product range</div>
-                        </div>
-                        <div class="timeline-node"></div>
-                    </div>
-
-                    <!-- Milestone 5: 2013 -->
-                    <div class="timeline-item">
-                        <div class="timeline-card">
-                            <div class="timeline-icon">
-                                <i class="fas fa-certificate"></i>
-                            </div>
-                            <div class="timeline-year">2013</div>
-                            <div class="timeline-title">ISO 9001 Certified</div>
-                            <div class="timeline-description">Formalized commitment to quality standards</div>
-                        </div>
-                        <div class="timeline-node"></div>
-                    </div>
-
-                    <!-- Milestone 6: 2018 -->
-                    <div class="timeline-item">
-                        <div class="timeline-card">
-                            <div class="timeline-icon">
-                                <i class="fas fa-wrench"></i>
-                            </div>
-                            <div class="timeline-year">2018</div>
-                            <div class="timeline-title">Cold Forging + ISO 2015</div>
-                            <div class="timeline-description">Advanced manufacturing with ISO 9001:2015 upgrade</div>
-                        </div>
-                        <div class="timeline-node"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Clients Section -->
-    <section id="clients" class="clients">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Our Clients</span>
-                <h2 class="section-title">Trusted by Industry Leaders</h2>
-                <p class="section-description">Select partners we proudly serve</p>
-            </div>
-
-            <div id="clientsGrid" class="clients-grid">
-                <!-- Populated by script.js -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="services">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Our Services</span>
-                <h2 class="section-title">Comprehensive Engineering Solutions</h2>
-                <p class="section-description">From concept to completion, we deliver precision-engineered components and systems</p>
-            </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-industry"></i>
-                    </div>
-                    <h3>CNC Machining</h3>
-                    <p>High-precision CNC turning, milling, and drilling services for complex components with tight tolerances.</p>
-                    <ul class="service-list">
-                        <li>3-axis & 5-axis CNC Machining</li>
-                        <li>Precision Turning & Milling</li>
-                        <li>Micro-machining Capabilities</li>
-                    </ul>
+            <div class="about-grid">
+                <div class="about-column">
+                    <h3>Company Profile</h3>
+                    <p>Jaivanth Engineering is one of the established manufacturers of machined, pressed, and cold-forged industrial components. Founded by Mr. R. Subramaniam, the company operates from its own manufacturing facility in Ganapathy, Coimbatore, covering approximately 10,000 sq. ft.</p>
+                    <p>Over the years, Jaivanth Engineering has continuously upgraded its machinery, processes, and quality systems, enabling it to meet evolving customer and regulatory requirements with confidence.</p>
                 </div>
 
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-cog"></i>
-                    </div>
-                    <h3>General Machining</h3>
-                    <p>Comprehensive machining services including conventional and specialized operations for various materials.</p>
-                    <ul class="service-list">
-                        <li>Lathe & Milling Operations</li>
-                        <li>Drilling & Boring</li>
-                        <li>Surface Grinding</li>
-                    </ul>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-drafting-compass"></i>
-                    </div>
-                    <h3>Design & Engineering</h3>
-                    <p>CAD/CAM design services and engineering consultation for optimal component design and manufacturing.</p>
-                    <ul class="service-list">
-                        <li>3D CAD Modeling</li>
-                        <li>Engineering Design</li>
-                        <li>Prototyping Services</li>
-                    </ul>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-tools"></i>
-                    </div>
-                    <h3>Fabrication & Assembly</h3>
-                    <p>Complete fabrication and assembly services for complex mechanical systems and assemblies.</p>
-                    <ul class="service-list">
-                        <li>Metal Fabrication</li>
-                        <li>Welding & Joining</li>
-                        <li>Assembly Services</li>
-                    </ul>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-check-double"></i>
-                    </div>
-                    <h3>Quality Control</h3>
-                    <p>Rigorous quality inspection and testing to ensure all components meet specified standards.</p>
-                    <ul class="service-list">
-                        <li>CMM Inspection</li>
-                        <li>Material Testing</li>
-                        <li>Quality Certification</li>
-                    </ul>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-hammer"></i>
-                    </div>
-                    <h3>Tool & Die Making</h3>
-                    <p>Custom tool and die manufacturing for various industrial applications and production needs.</p>
-                    <ul class="service-list">
-                        <li>Custom Tooling</li>
-                        <li>Die Design & Manufacturing</li>
-                        <li>Jigs & Fixtures</li>
+                <div class="about-column">
+                    <h3>Our Strengths</h3>
+                    <ul class="strengths-list">
+                        <li><i class="fas fa-check"></i> Robust Quality Management System</li>
+                        <li><i class="fas fa-check"></i> In-house Manufacturing & Process Control</li>
+                        <li><i class="fas fa-check"></i> Custom Component Development Capability</li>
+                        <li><i class="fas fa-check"></i> Ethical Business Practices</li>
+                        <li><i class="fas fa-check"></i> Long-term Customer Relationships</li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Capabilities Section -->
-    <section id="capabilities" class="capabilities">
+    <!-- Vision & Mission Section -->
+    <section class="vision-mission">
         <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Our Capabilities</span>
-                <h2 class="section-title">Advanced Manufacturing Capabilities</h2>
-            </div>
-            <div class="capabilities-grid">
-                <div class="capability-item">
-                    <div class="capability-icon">
-                        <i class="fas fa-cube"></i>
-                    </div>
-                    <h4>Materials</h4>
-                    <p>Steel, Aluminum, Stainless Steel, Brass, Bronze, Plastics, and more</p>
-                </div>
-                <div class="capability-item">
-                    <div class="capability-icon">
-                        <i class="fas fa-ruler-combined"></i>
-                    </div>
-                    <h4>Precision</h4>
-                    <p>Tolerances up to ±0.001mm with state-of-the-art equipment</p>
-                </div>
-                <div class="capability-item">
-                    <div class="capability-icon">
-                        <i class="fas fa-layer-group"></i>
-                    </div>
-                    <h4>Capacity</h4>
-                    <p>Small batch to large volume production capabilities</p>
-                </div>
-                <div class="capability-item">
-                    <div class="capability-icon">
-                        <i class="fas fa-clock"></i>
-                    </div>
-                    <h4>Quick Turnaround</h4>
-                    <p>Fast prototyping and production with on-time delivery</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Stats Section -->
-    <section class="stats">
-        <div class="container">
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <i class="fas fa-users"></i>
-                    <div class="stat-number" data-target="100">0</div>
-                    <div class="stat-label">Happy Clients</div>
-                </div>
-                <div class="stat-item">
-                    <i class="fas fa-project-diagram"></i>
-                    <div class="stat-number" data-target="500">0</div>
-                    <div class="stat-label">Projects Completed</div>
-                </div>
-                <div class="stat-item">
-                    <i class="fas fa-trophy"></i>
-                    <div class="stat-number" data-target="15">0</div>
-                    <div class="stat-label">Years Experience</div>
-                </div>
-                <div class="stat-item">
+            <div class="vision-mission-grid">
+                <div class="vm-card vision">
                     <i class="fas fa-star"></i>
-                    <div class="stat-number" data-target="100">0</div>
-                    <div class="stat-label">Quality Rating</div>
+                    <h3>Our Vision</h3>
+                    <p>To be a globally trusted manufacturer of precision-engineered industrial and cold-forged components, recognized for quality excellence, technological capability, and customer-centric manufacturing solutions.</p>
+                </div>
+
+                <div class="vm-card mission">
+                    <i class="fas fa-bullseye"></i>
+                    <h3>Our Mission</h3>
+                    <ul>
+                        <li>Manufacture and supply high-quality machined, pressed, and cold-forged components that meet customer, statutory, and regulatory requirements</li>
+                        <li>Achieve operational excellence through advanced technology, skilled manpower, and disciplined processes</li>
+                        <li>Continuously improve our Quality Management System in line with ISO 9001:2015 standards</li>
+                        <li>Foster long-term partnerships by ensuring consistent quality, competitive pricing, and timely delivery</li>
+                        <li>Maintain a safe, ethical, and sustainable manufacturing environment</li>
+                    </ul>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Manufacturing Capabilities Section -->
+    <section id="capabilities" class="capabilities-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Manufacturing Capabilities</h2>
+                <p>Precision Engineering at Every Step</p>
+            </div>
+
+            <div class="capabilities-grid">
+                <div class="capability-card">
+                    <h3>Cold Forging</h3>
+                    <p>Precision-engineered components up to M10 capacity</p>
+                </div>
+                <div class="capability-card">
+                    <h3>CNC Turning</h3>
+                    <p>Advanced automated machining solutions</p>
+                </div>
+                <div class="capability-card">
+                    <h3>Thread Rolling</h3>
+                    <p>High-precision threaded components</p>
+                </div>
+                <div class="capability-card">
+                    <h3>Power Press Components</h3>
+                    <p>Pressed metal and industrial parts</p>
+                </div>
+                <div class="capability-card">
+                    <h3>Drilling & Secondary Machining</h3>
+                    <p>Precise finishing operations</p>
+                </div>
+                <div class="capability-card">
+                    <h3>Surface Treatment</h3>
+                    <p>Partnered finishing & coating services</p>
+                </div>
+            </div>
+
+            <div class="cold-forging-specs">
+                <h3>Cold Forging Specifications</h3>
+                <div class="specs-grid">
+                    <div class="spec-item">
+                        <span class="spec-label">Machine Type:</span>
+                        <span class="spec-value">Bolt Makers – Two Dies Four Blow</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Capacity:</span>
+                        <span class="spec-value">Up to M10</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Production Rate:</span>
+                        <span class="spec-value">800 – 1500 components/hour</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Primary Products:</span>
+                        <span class="spec-value">Rivets, Bolts, Screws, Studs, Custom Parts</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Machinery & Infrastructure -->
+    <section class="machinery-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Machinery & Infrastructure</h2>
+                <p>State-of-the-Art Manufacturing Equipment</p>
+            </div>
+
+            <div class="machinery-grid">
+                <div class="machinery-list">
+                    <h3>Manufacturing Equipment</h3>
+                    <ul>
+                        <li><i class="fas fa-cog"></i> Cold Forging Machine (M10 Capacity)</li>
+                        <li><i class="fas fa-cog"></i> Thread Rolling Machine</li>
+                        <li><i class="fas fa-cog"></i> CNC Automats</li>
+                        <li><i class="fas fa-cog"></i> Capstan Lathes</li>
+                        <li><i class="fas fa-cog"></i> Pneumatic Press (15 Tons)</li>
+                        <li><i class="fas fa-cog"></i> Power Press (10 Tons)</li>
+                        <li><i class="fas fa-cog"></i> Drilling Machines</li>
+                        <li><i class="fas fa-cog"></i> Vibro Polishing Machines</li>
+                        <li><i class="fas fa-cog"></i> Belt Grinding & Buffing Machines</li>
+                        <li><i class="fas fa-cog"></i> Bench Grinding Machines</li>
+                    </ul>
+                </div>
+
+                <div class="infrastructure-list">
+                    <h3>Infrastructure</h3>
+                    <ul>
+                        <li><i class="fas fa-building"></i> Well-organized production floor</li>
+                        <li><i class="fas fa-building"></i> Dedicated finishing areas</li>
+                        <li><i class="fas fa-building"></i> Inspection & quality control station</li>
+                        <li><i class="fas fa-building"></i> Raw material storage facility</li>
+                        <li><i class="fas fa-building"></i> Efficient dispatch & logistics</li>
+                        <li><i class="fas fa-building"></i> 10,000 sq. ft. manufacturing facility</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Products</h2>
+                <p>Precision Components for Industrial Applications</p>
+            </div>
+
+            <div class="products-grid">
+                <div class="product-category">
+                    <h3><i class="fas fa-hammer"></i> Cold Forged Components</h3>
+                    <ul>
+                        <li>Rivets</li>
+                        <li>Bolts</li>
+                        <li>Screws</li>
+                        <li>Studs</li>
+                        <li>Nuts</li>
+                        <li>Special Custom Components</li>
+                    </ul>
+                </div>
+
+                <div class="product-category">
+                    <h3><i class="fas fa-square"></i> Pressed Components</h3>
+                    <ul>
+                        <li>Sheet Metal Press Parts</li>
+                        <li>Brackets & Assemblies</li>
+                        <li>Custom Pressed Components</li>
+                        <li>Per Drawing Specifications</li>
+                    </ul>
+                </div>
+
+                <div class="product-category">
+                    <h3><i class="fas fa-wrench"></i> Custom Manufacturing</h3>
+                    <ul>
+                        <li>Custom Cold Forged Parts</li>
+                        <li>Bespoke Machined Components</li>
+                        <li>OEM-specific Solutions</li>
+                        <li>Prototype Development</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Raw Materials Section -->
+    <section class="materials-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Raw Materials Handled</h2>
+                <p>Premium Materials for Superior Quality</p>
+            </div>
+
+            <div class="materials-grid">
+                <div class="material-item">
+                    <i class="fas fa-box"></i>
+                    <span>Aluminium & Alloys</span>
+                </div>
+                <div class="material-item">
+                    <i class="fas fa-box"></i>
+                    <span>Stainless Steel (SS304, SS316)</span>
+                </div>
+                <div class="material-item">
+                    <i class="fas fa-box"></i>
+                    <span>Carbon & Alloy Steels</span>
+                </div>
+                <div class="material-item">
+                    <i class="fas fa-box"></i>
+                    <span>Nickel-based Materials</span>
+                </div>
+                <div class="material-item">
+                    <i class="fas fa-box"></i>
+                    <span>Copper & Alloys</span>
+                </div>
+                <div class="material-item">
+                    <i class="fas fa-box"></i>
+                    <span>Grey & SG Cast Iron</span>
+                </div>
+                <div class="material-item">
+                    <i class="fas fa-box"></i>
+                    <span>Tool Steels</span>
+                </div>
+                <div class="material-item">
+                    <i class="fas fa-box"></i>
+                    <span>Industrial Steels</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quality & Certification Section -->
+    <section id="quality" class="quality-section">
+        <div class="container">
+            <div class="quality-content">
+                <div class="quality-main">
+                    <div class="iso-badge">
+                        <i class="fas fa-certificate"></i>
+                        <span>ISO 9001:2015</span>
+                    </div>
+                    <h2>Quality & Certification</h2>
+                    <p><strong>Quality Policy</strong></p>
+                    <p>Jaivanth Engineering is committed to manufacturing and supplying machined, pressed, and cold-forged components that satisfy customer requirements, comply with applicable statutory and regulatory standards, and continually improve the effectiveness of the Quality Management System to enhance customer satisfaction.</p>
+                </div>
+
+                <div class="secondary-processes">
+                    <h3>Approved Secondary Processes</h3>
+                    <div class="processes-grid">
+                        <div class="process-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Powder Coating</span>
+                        </div>
+                        <div class="process-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Hot Dip Galvanizing</span>
+                        </div>
+                        <div class="process-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Zinc Plating</span>
+                        </div>
+                        <div class="process-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Nickel & Electroless Nickel</span>
+                        </div>
+                        <div class="process-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Hard Chrome Plating</span>
+                        </div>
+                        <div class="process-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Heat Treatment (All Types)</span>
+                        </div>
+                        <div class="process-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>QPQ / Black Oxidizing</span>
+                        </div>
+                        <div class="process-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Hard Anodizing</span>
+                        </div>
+                        <div class="process-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Painting & Coatings</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customers Section -->
+    <section id="customers" class="customers-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Customers</h2>
+                <p>Trusted by Leading Organizations</p>
+            </div>
+
+            <div class="customers-grid">
+                <div class="customer-logo">
+                    <div class="placeholder">LGB</div>
+                </div>
+                <div class="customer-logo">
+                    <div class="placeholder">Roots</div>
+                </div>
+                <div class="customer-logo">
+                    <div class="placeholder">Aditya</div>
+                </div>
+                <div class="customer-logo">
+                    <div class="placeholder">JenTex</div>
+                </div>
+            </div>
+
+            <p class="customers-note">We are proud to serve reputed organizations across diverse industries with consistent quality, reliability, and technical excellence.</p>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="contact">
+    <section id="contact" class="contact-section">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">Get in Touch</span>
-                <h2 class="section-title">Contact Us</h2>
-                <p class="section-description">Let's discuss your engineering needs</p>
+                <h2>Contact Us</h2>
+                <p>Get in Touch for Inquiries & Quotes</p>
             </div>
-            <div class="contact-content">
+
+            <div class="contact-grid">
                 <div class="contact-info">
-                    <div class="contact-card">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
+                    <div class="contact-item">
+                        <i class="fas fa-building"></i>
+                        <div>
+                            <h4>Headquarters</h4>
+                            <p>28-B, Mookambikai Nagar<br>Maniakaram Palayam Road<br>Ganapathy, Coimbatore – 641006</p>
                         </div>
-                        <h4>Visit Us</h4>
-                        <p>Jaivant Engineering<br>Manufacturing Facility<br>India</p>
                     </div>
-                    <div class="contact-card">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
+
+                    <div class="contact-item">
+                        <i class="fas fa-user"></i>
+                        <div>
+                            <h4>Managing Director</h4>
+                            <p>Mr. R. Subramaniam</p>
                         </div>
-                        <h4>Call Us</h4>
-                        <p>+91 XXXXXXXXXX<br>Mon-Sat: 9AM - 6PM</p>
                     </div>
-                    <div class="contact-card">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
+
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Phone</h4>
+                            <p><a href="tel:+919566643966">+91 95666 43966</a></p>
                         </div>
-                        <h4>Email Us</h4>
-                        <p>info@jaivantengineering.com<br>sales@jaivantengineering.com</p>
+                    </div>
+
+                    <div class="contact-item">
+                        <i class="fas fa-file"></i>
+                        <div>
+                            <h4>GST Registration</h4>
+                            <p>33AAJFJ8897R1Z5</p>
+                        </div>
                     </div>
                 </div>
-                <div class="contact-form">
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <input type="text" name="name" placeholder="Your Name" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" name="email" placeholder="Your Email" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="tel" name="phone" placeholder="Phone Number">
-                        </div>
-                        <div class="form-group">
-                            <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Send Message</button>
-                    </form>
-                </div>
+
+                <form class="contact-form" id="contactForm">
+                    <h3>Request a Quote</h3>
+                    
+                    <div class="form-group">
+                        <label for="name">Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="company">Company Name *</label>
+                        <input type="text" id="company" name="company" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="product">Product Type *</label>
+                        <select id="product" name="product" required>
+                            <option value="">Select a product</option>
+                            <option value="cold-forged">Cold Forged Components</option>
+                            <option value="pressed">Pressed Components</option>
+                            <option value="machined">Machined Components</option>
+                            <option value="custom">Custom Components</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="quantity">Quantity Requirement *</label>
+                        <input type="text" id="quantity" name="quantity" placeholder="e.g., 1000 units/month" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message / Additional Details</label>
+                        <textarea id="message" name="message" rows="4" placeholder="Tell us more about your requirements..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Submit Inquiry</button>
+                </form>
             </div>
         </div>
     </section>
@@ -425,44 +557,26 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3><i class="fas fa-cogs"></i> Jaivant Engineering</h3>
-                    <p>Excellence in precision engineering and manufacturing solutions. Your trusted partner for quality components.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
+                    <h4>Jaivanth Engineering</h4>
+                    <p>ISO 9001:2015 Certified Manufacturer of Industrial & Cold Forged Components</p>
                 </div>
                 <div class="footer-section">
                     <h4>Quick Links</h4>
                     <ul>
                         <li><a href="#home">Home</a></li>
                         <li><a href="#about">About Us</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#capabilities">Capabilities</a></li>
+                        <li><a href="#products">Products</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h4>Services</h4>
-                    <ul>
-                        <li><a href="#services">CNC Machining</a></li>
-                        <li><a href="#services">General Machining</a></li>
-                        <li><a href="#services">Design & Engineering</a></li>
-                        <li><a href="#services">Quality Control</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Contact Info</h4>
-                    <ul>
-                        <li><i class="fas fa-phone"></i> +91 XXXXXXXXXX</li>
-                        <li><i class="fas fa-envelope"></i> info@jaivantengineering.com</li>
-                        <li><i class="fas fa-clock"></i> Mon-Sat: 9AM - 6PM</li>
-                    </ul>
+                    <h4>Contact</h4>
+                    <p>Ganapathy, Coimbatore – 641006<br>
+                    <a href="tel:+919566643966">+91 95666 43966</a></p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Jaivant Engineering. All rights reserved. | Designed with excellence</p>
+                <p>&copy; 2024 Jaivanth Engineering. All rights reserved. | ISO 9001:2015 Certified</p>
             </div>
         </div>
     </footer>
