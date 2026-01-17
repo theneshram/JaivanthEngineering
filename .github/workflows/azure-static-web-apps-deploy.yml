@@ -28,13 +28,6 @@ jobs:
         run: |
           cd api
           npm install
-          cd ..
-
-      - name: Build API
-        run: |
-          cd api
-          npm run build
-          cd ..
 
       - name: Build and Deploy
         id: builddeploy
@@ -43,10 +36,9 @@ jobs:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           action: "upload"
-          app_location: "/"
+          app_location: "src"
           api_location: "api"
-          output_location: "."
-          app_build_command: "echo 'No build needed for frontend'"
+          output_location: ""
           skip_app_build: true
 
   close_pull_request_job:
