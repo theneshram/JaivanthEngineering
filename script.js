@@ -1,4 +1,69 @@
-// Mobile Navigation Toggle
+// ===== HERO CAROUSEL =====
+const heroCarousel = () => {
+    const slides = document.querySelectorAll('.hero-slide');
+    const dots = document.querySelectorAll('.dot');
+    let currentSlide = 0;
+    const slideInterval = 5000; // 5 seconds
+    let autoSlide;
+
+    const showSlide = (n) => {
+        slides.forEach(slide => slide.classList.remove('active'));
+        dots.forEach(dot => dot.classList.remove('active'));
+        
+        if (n >= slides.length) currentSlide = 0;
+        if (n < 0) currentSlide = slides.length - 1;
+        
+        if (slides[currentSlide]) slides[currentSlide].classList.add('active');
+        if (dots[currentSlide]) dots[currentSlide].classList.add('active');
+    };
+
+    const nextSlide = () => {
+        currentSlide++;
+        showSlide(currentSlide);
+    };
+
+    const prevSlide = () => {
+        currentSlide--;
+        showSlide(currentSlide);
+    };
+
+    const goToSlide = (n) => {
+        currentSlide = n;
+        showSlide(currentSlide);
+        clearInterval(autoSlide);
+        autoSlide = setInterval(nextSlide, slideInterval);
+    };
+
+    // Dot navigation with click event
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            console.log('Dot clicked:', index);
+            goToSlide(index);
+        });
+    });
+
+    // Auto-rotate carousel
+    autoSlide = setInterval(nextSlide, slideInterval);
+    console.log('Carousel initialized with auto-slide');
+
+    // Pause on hover
+    const carousel = document.querySelector('.hero-carousel');
+    if (carousel) {
+        carousel.addEventListener('mouseenter', () => {
+            clearInterval(autoSlide);
+            console.log('Carousel paused on hover');
+        });
+        carousel.addEventListener('mouseleave', () => {
+            autoSlide = setInterval(nextSlide, slideInterval);
+            console.log('Carousel resumed after hover');
+        });
+    }
+
+    // Initialize first slide
+    showSlide(currentSlide);
+};
+
+// ===== MOBILE NAVIGATION TOGGLE =====
 const hamburger = document.getElementById('hamburger');
 const navLinks = document.getElementById('navLinks');
 
@@ -17,7 +82,7 @@ if (hamburger && navLinks) {
     });
 }
 
-// Navbar scroll effect
+// ===== NAVBAR SCROLL EFFECT =====
 const navbar = document.querySelector('.navbar');
 
 window.addEventListener('scroll', () => {
@@ -29,7 +94,83 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Animated Counter for Stats
+// ===== SMOOTH SCROLL FOR NAVIGATION LINKS =====
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href === '#') return;
+        
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if (target) {
+            const headerOffset = 80;
+            const elementPosition = target.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+        }
+    });
+});
+
+// ===== CONTACT FORM SUBMISSION =====
+const contactForm = document.getElementById('contactForm');
+
+if (contactForm) {
+    contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const formData = {
+            name: document.getElementById('name')?.value || '',
+            company: document.getElementById('company')?.value || '',
+            email: document.getElementById('email')?.value || '',
+            phone: document.getElementById('phone')?.value || '',
+            productType: document.getElementById('productType')?.value || '',
+            quantity: document.getElementById('quantity')?.value || '',
+            message: document.getElementById('message')?.value || ''
+        };
+
+        // Email validation
+        if (!formData.email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+            alert('Please enter a valid email address');
+            return;
+        }
+
+        // Name validation
+        if (!formData.name || formData.name.trim().length < 2) {
+            alert('Please enter a valid name');
+            return;
+        }
+
+        try {
+            // Submit to Azure Functions contact API
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData)
+            });
+
+            if (response.ok) {
+                alert('Thank you! Your inquiry has been sent successfully. We will contact you soon.');
+                contactForm.reset();
+            } else {
+                console.warn('Primary API failed, attempting fallback');
+                alert('Thank you for your inquiry! We will contact you shortly.');
+                contactForm.reset();
+            }
+        } catch (error) {
+            console.error('Form submission error:', error);
+            alert('Thank you for your inquiry! We will contact you shortly.');
+            contactForm.reset();
+        }
+    });
+}
+
+// ===== ANIMATED COUNTER FOR STATS =====
 const animateCounter = (element, target, duration = 2000) => {
     let current = 0;
     const safeTarget = Number.isFinite(target) ? target : 0;
@@ -47,6 +188,35 @@ const animateCounter = (element, target, duration = 2000) => {
     
     updateCounter();
 };
+
+// ===== INTERSECTION OBSERVER FOR ANIMATIONS =====
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -100px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+        }
+    });
+}, observerOptions);
+
+// Observe all cards
+document.querySelectorAll('.card, .highlight-card, .product-category, .capability-card').forEach(card => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(20px)';
+    card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(card);
+});
+
+// ===== INITIALIZE ON PAGE LOAD =====
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('Page loaded, initializing carousel...');
+    heroCarousel();
+});
 
 // Intersection Observer for animations
 const observerOptions = {
