@@ -1,0 +1,25 @@
+{
+  "name": "jaivant-engineering",
+  "version": "1.0.0",
+  "description": "Jaivant Engineering - Precision Manufacturing & Engineering Solutions",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:api\" \"npm run dev:frontend\"",
+    "dev:api": "cd api && node local-server.js",
+    "dev:frontend": "npx http-server src -p 3000 -c-1",
+    "build": "npm run build:api",
+    "build:api": "echo \"API is ready - no build needed for Node.js server\"",
+    "start": "npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "engineering",
+    "manufacturing",
+    "cnc",
+    "machining"
+  ],
+  "author": "Jaivant Engineering",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

@@ -10,11 +10,20 @@ yarn.lock
 .env.local
 .env.*.local
 .env.production.local
+local.settings.json
 
 # Build outputs
 dist/
 build/
 *.tsbuildinfo
+out/
+
+# Azure Functions
+.azure/
+.funcignore
+
+# Azure Static Web App
+.swa/
 
 # Logs
 logs/
